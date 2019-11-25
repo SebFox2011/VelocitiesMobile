@@ -22,3 +22,14 @@ et y mettre :
 
 créer ensuite le fichier .env avec cette valeur:
 API_URL=http://localhost:8000
+
+## Pour créer les packages mobiles
+
+Dans le fichier package.json, ajouter ces lignes:
+
+    "android": {
+      "package": "com.lazuryte.velocities"
+    }
+    
+Puis exécuter:
+expo build:android -t apk
