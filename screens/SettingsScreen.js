@@ -1,14 +1,17 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {StyleSheet, Text} from "react-native";
 
 export default function SettingsScreen() {
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
-  return <ExpoConfigView />;
+  return <Text style={styles.container}>TEXT</Text>;
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'app.json',
+  title: 'Settings',
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#34aaa2',
+  }
+});
