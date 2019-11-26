@@ -6,7 +6,7 @@ export default function SettingsScreen() {
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'Settings',
+  title: 'VeloCities',
 };
 
 const styles = StyleSheet.create({

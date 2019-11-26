@@ -9,8 +9,7 @@ export default function LinksScreen() {
 }
 
 LinksScreen.navigationOptions = {
-  //title: 'Links',
-  header: null,
+  title: 'VeloCities',
 };
 
 const styles = StyleSheet.create({
