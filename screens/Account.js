@@ -1,14 +1,14 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 
-export default function LinksScreen() {
+export default function Account() {
   return (
     <ScrollView style={styles.container}>
     </ScrollView>
   );
 }
 
-LinksScreen.navigationOptions = {
+Account.navigationOptions = {
   title: 'VeloCities',
 };
 

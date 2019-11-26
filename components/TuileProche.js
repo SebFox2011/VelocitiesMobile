@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
 import {TouchableOpacity, Text, StyleSheet} from "react-native";
+import * as Location from 'expo-location'
+import * as Permissions from 'expo-permissions'
 
 export class TuileProche extends Component {
+
+
+
     render() {
+        let status= Permissions.askAsync(Permissions.LOCATION)
         let {title} = this.props
         return (
             <TouchableOpacity style={styles.container}
-                  onPress={() => alert('Pressed')}>
+                  onPress={() => alert(JSON.stringify(Location.getCurrentPositionAsync({})))}>
                 <Text style={styles.content}>Station la plus proche de moi</Text>
             </TouchableOpacity>
         );

@@ -33,3 +33,9 @@ Dans le fichier package.json, ajouter ces lignes:
     
 Puis exécuter:
 expo build:android -t apk
+
+## installation de la geolocalisation
+
+expo install expo-location
+
+expo install expo-permissions
