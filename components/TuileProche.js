@@ -5,8 +5,6 @@ import * as Permissions from 'expo-permissions'
 
 export class TuileProche extends Component {
 
-
-
     render() {
         let status= Permissions.askAsync(Permissions.LOCATION)
         let {title} = this.props
@@ -23,7 +21,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#60D4B2',
         padding: 5,
-        margin: 15,
+        margin: 13,
         marginBottom:5,
         marginTop:5,
         width: 350,

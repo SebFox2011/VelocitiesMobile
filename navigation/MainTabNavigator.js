@@ -6,6 +6,8 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import Account from '../screens/Account';
 import SettingsScreen from '../screens/SettingsScreen';
+import CardScreen from "../components/CardScreen";
+import Register from "../screens/Register";
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -14,7 +16,9 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen
+      Home: HomeScreen,
+      CardScreen:CardScreen,
+      Account:Account
   },
   config
 );
@@ -35,21 +39,21 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const AccountStack = createStackNavigator(
   {
-    Links: Account,
+    Register: Register,
   },
   config
 );
 
-LinksStack.navigationOptions = {
+AccountStack.navigationOptions = {
   tabBarLabel: 'Mon compte',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 
-LinksStack.path = '';
+AccountStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -69,7 +73,7 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  AccountStack,
   SettingsStack,
 });
 
