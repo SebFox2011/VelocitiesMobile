@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, TextInput} from 'react-native';
-import {Button, CheckBox} from 'native-base'
+import {View, StyleSheet, Text, TextInput, ScrollView} from 'react-native';
+import {Button, CheckBox,DatePicker} from 'native-base'
 
 export default class Register extends Component {
     constructor() {
         super();
         this.state = {
             checked1: false,
-            checked2: false
-        }
+            checked2: false,
+            chosenDate:new Date(),
+
+        };
+        this.setDate = this.setDate.bind(this);
+    }
+
+    setDate(newDate){
+        this.setState({chosenDate:newDate})
     }
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <Text style={styles.textHeader}>Mon compte</Text>
                 <Text style={styles.textInscription}>Inscription</Text>
                 <View style={{flexDirection:'row'}}>
@@ -31,14 +38,23 @@ export default class Register extends Component {
                 <TextInput style={styles.textinput} placeholder='Identifiant'/>
                 <TextInput style={styles.textinput} placeholder='Adresse mail'/>
                 <TextInput style={styles.textinput} placeholder='Mot de passe'/>
-                <TextInput style={styles.textinput} placeholder='Date de naissance'/>
+                <Text style={styles.textinput} placeholder='Date de naissance'>{this.state.chosenDate.toDateString()}</Text>
+                <DatePicker
+                    date={this.state.chosenDate}
+                    onDateChange={this.setDate}
+                    locale="fr"
+                    minimumDate={new Date(1900,1,1) }
+                    maximumDate={new Date()}
+                    placeHolderText={"Date de naissance"}
+                    textStyle={{color:"white"}}
+                />
                 <Button style={styles.button}
                         color='#ffffff'
-                        onPress={() => {
+                        onPress={() => {alert(this.state.chosenDate.toDateString())
                         }}>
                     <Text style={styles.textBouton}>S'inscrire</Text>
                 </Button>
-            </View>
+            </ScrollView>
         );
     }
 }
