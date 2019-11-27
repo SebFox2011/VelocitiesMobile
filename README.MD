@@ -39,3 +39,5 @@ expo build:android -t apk
 expo install expo-location
 
 expo install expo-permissions
+
+expo install react-native-maps

@@ -28,6 +28,7 @@
     },
     "android": {
       "package": "com.lazuryte.velocities"
-    }
+    },
+    "description": ""
   }
 }
