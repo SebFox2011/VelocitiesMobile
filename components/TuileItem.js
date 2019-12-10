@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Text, StyleSheet} from "react-native";
-import CardScreen from "./CardScreen";
+import {TouchableOpacity, Text, StyleSheet,Button} from "react-native";
 
 export class TuileItem extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         let {title} = this.props
         return (
             <TouchableOpacity style={styles.container}
-                              //onPress={() => this.props.navigation.navigate('CardScreen')}
-            >
+                              onPress={() => this.props.navigation.navigate('CardScreen')}>
                 <Text style={styles.content}>{title}</Text>
             </TouchableOpacity>
         );

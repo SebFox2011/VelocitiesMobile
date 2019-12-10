@@ -50,7 +50,7 @@ export default class Register extends Component {
                 />
                 <Button style={styles.button}
                         color='#ffffff'
-                        onPress={() => {alert(this.state.chosenDate.toDateString())
+                        onPress={() => {this.props.navigation.navigate('CardScreen')
                         }}>
                     <Text style={styles.textBouton}>S'inscrire</Text>
                 </Button>

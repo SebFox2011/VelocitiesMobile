@@ -27,13 +27,9 @@ HomeStack.navigationOptions = {
   tabBarLabel: 'Accueil',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      focused={focused}
-      name={
+      focused={focused} name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
+          ? `ios-information-circle${focused ? '' : '-outline'}`: 'md-information-circle'}/>
   ),
 };
 
@@ -42,6 +38,7 @@ HomeStack.path = '';
 const AccountStack = createStackNavigator(
   {
     Register: Register,
+      CardScreen:CardScreen
   },
   config
 );
