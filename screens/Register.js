@@ -50,8 +50,7 @@ export default class Register extends Component {
                 />
                 <Button style={styles.button}
                         color='#ffffff'
-                        onPress={() => {this.props.navigation.navigate('CardScreen')
-                        }}>
+                        onPress={() => {}}>
                     <Text style={styles.textBouton}>S'inscrire</Text>
                 </Button>
             </ScrollView>
@@ -60,7 +59,7 @@ export default class Register extends Component {
 }
 
 Register.navigationOptions = {
-    title: 'VeloCities',
+    title: 'Mon compte',
 };
 
 const styles = StyleSheet.create({

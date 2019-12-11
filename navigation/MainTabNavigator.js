@@ -17,8 +17,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
       Home: HomeScreen,
-      CardScreen:CardScreen,
-      Account:Account
+      CardScreen:CardScreen
   },
   config
 );
@@ -37,8 +36,8 @@ HomeStack.path = '';
 
 const AccountStack = createStackNavigator(
   {
-    Register: Register,
-      CardScreen:CardScreen
+    Account: Account,
+      Register:Register
   },
   config
 );

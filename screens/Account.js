@@ -1,27 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, TouchableOpacity, StyleSheet, Text, TextInput} from 'react-native';
 import {Button} from 'native-base'
 
 
-export default function Account() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.textHeader}>Mon compte</Text>
-            <Text style={styles.textConnexion}>Connexion</Text>
+class Account extends Component {
+    constructor(props) {
+        super(props);
 
-            <TextInput style={styles.textinput} placeholder='Identifiant'/>
-            <TextInput style={styles.textinput} placeholder='Mot de passe'/>
-            <Button style={styles.button}
-                    color='#ffffff'
-                    onPress={() => {
-                    }}>
-                <Text style={styles.textBouton}>Se connecter</Text>
-            </Button>
-            <Text style={styles.textBouton}>Mot de passe oublié ?</Text>
-            <Text style={styles.textBouton}>S'inscrire</Text>
-        </View>
-    );
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.textHeader}>Mon compte</Text>
+                <Text style={styles.textConnexion}>Connexion</Text>
+
+                <TextInput style={styles.textinput} placeholder='Identifiant'/>
+                <TextInput style={styles.textinput} placeholder='Mot de passe'/>
+                <Button style={styles.button}
+                        color='#ffffff'
+                        onPress={()=> {}}>
+                    <Text style={styles.textBouton}>Se connecter</Text>
+                </Button>
+                <Text style={styles.textBouton}>Mot de passe oublié ?</Text>
+                <Text style={styles.textBouton}
+                      onPress={() => {this.props.navigation.navigate('Register')}}
+                >S'inscrire</Text>
+            </View>
+        );
+    }
 }
+
+export default Account;
 
 Account.navigationOptions = {
     title: 'VeloCities',
