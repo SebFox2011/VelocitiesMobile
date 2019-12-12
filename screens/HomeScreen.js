@@ -13,15 +13,15 @@ class HomeScreen extends Component {
         return (
             <View style={{flexDirection:'column',alignItems:'stretch',flex:1,backgroundColor: '#34aaa2'}}>
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
-                    <TuileItem title={'Où louer / Déposer 1 vélo'}/>
-                    <TuileItem title={'Mon compte'}/>
+                    <TuileItem title={'Où louer / Déposer 1 vélo'} navigation={this.props.navigation}/>
+                    <TuileItem title={'Mon compte'} navigation={this.props.navigation}/>
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
-                    <TuileItem title={'Changer la ville'}/>
-                    <TuileItem title={'Stations favorites'}/>
+                    <TuileItem title={'Changer la ville'} navigation={this.props.navigation}/>
+                    <TuileItem title={'Stations favorites'} navigation={this.props.navigation}/>
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
-                    <TuileItem title={'Les stations de Rennes'}/>
+                    <TuileItem title={'Les stations de Rennes'} navigation={this.props.navigation}/>
                     <TuileSuggest/>
                 </View>
                 <TuileProche/>
