@@ -34,7 +34,7 @@ class CardScreen extends Component {
                     }
                 </View>
             } else {
-                return <ActivityIndicator animation="true"/>
+                return <ActivityIndicator animation="true" size="large" color="#00aa00"/>
             }
         };
 
@@ -42,7 +42,7 @@ class CardScreen extends Component {
             <View>
                 <Text>Liste des stations</Text>
                 {renderBikeList()}
-                <StationItem/>
+                <StationItem stations={this.state.stations}/>
             </View>
         );
     }
