@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text} from "react-native";
+import {View, Text, ActivityIndicator} from "react-native";
 import axios from "axios";
+import StationItem from "./StationItem";
 
 class CardScreen extends Component {
     constructor(props) {
@@ -11,14 +12,8 @@ class CardScreen extends Component {
     }
 
     fetchStations() {
-        /*fetch("http://localhost:8000/stations")
-            .then(response => response.json())
-            .then(data => this.setState({ // ajoute les stations
-                stations: [...this.state.stations,...data.stations]
-            }));*/
         axios.get("http://localhost:8000/stations").then((response) => {
             this.setState({stations: response.data});
-            console.log(this.state.stations)
         });
     };
 
@@ -27,10 +22,9 @@ class CardScreen extends Component {
     }
 
     render() {
-        return (
-            <View>
-                <Text>Liste des stations</Text>
-                <View>
+        const renderBikeList = () => {
+            if (this.state.stations.length > 1) {
+                return <View>
                     {
                         this.state.stations.map(station => {
                             return <Text key={station.idStation}>
@@ -39,6 +33,16 @@ class CardScreen extends Component {
                         })
                     }
                 </View>
+            } else {
+                return <ActivityIndicator animation="true"/>
+            }
+        };
+
+        return (
+            <View>
+                <Text>Liste des stations</Text>
+                {renderBikeList()}
+                <StationItem/>
             </View>
         );
     }
