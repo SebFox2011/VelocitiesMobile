@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet,Dimensions, Text,View} from "react-native";
 import MapView from 'react-native-maps'
+import CardScreen from "../components/CardScreen";
 
 export default class SettingsScreen extends Component {
   constructor() {
@@ -10,7 +11,7 @@ export default class SettingsScreen extends Component {
         latitude: 48.0978255,
         longitude: -1.6847536,
         latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        longitudeDelta: 0.0421
       }
     }
   }
@@ -23,8 +24,8 @@ export default class SettingsScreen extends Component {
           <Text>Carte google maps</Text>
           <MapView style={styles.mapStyle}
               region={this.state.region}
-              onRegionChange={(region) => this.onRegionChange}
-          />
+              onRegionChange={(region) => this.onRegionChange}/>
+          <CardScreen/>
         </View>
     );
   }
