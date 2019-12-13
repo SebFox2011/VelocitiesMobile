@@ -12,7 +12,7 @@ class CardScreen extends Component {
     }
 
     fetchStations() {
-        axios.get("http://localhost:8000/stations").then((response) => {
+        axios.get("http://92.167.212.55/stations").then((response) => {
             this.setState({stations: response.data});
         });
     };

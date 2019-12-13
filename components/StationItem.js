@@ -6,7 +6,6 @@ class StationItem extends Component {
         return (
             <View style={styles.container}>
                 <Text>StationItem</Text>
-                {console.log(this.props.stations)}
             </View>
         );
     }
