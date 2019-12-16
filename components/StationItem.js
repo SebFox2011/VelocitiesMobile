@@ -2,11 +2,17 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from "react-native"
 
 class StationItem extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
+
             <View style={styles.container}>
-                <Text>StationItem</Text>
+                <Text>{this.props.name} {this.props.bikesAvailable} {this.props.slotsAvailable} {this.props.state}</Text>
             </View>
+
         );
     }
 }

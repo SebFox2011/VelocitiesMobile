@@ -9,6 +9,10 @@ export default class Register extends Component {
             checked1: false,
             checked2: false,
             chosenDate:new Date(),
+            username: '',
+            email:'',
+            password: '',
+            gender:''
 
         };
         this.setDate = this.setDate.bind(this);
@@ -18,26 +22,39 @@ export default class Register extends Component {
         this.setState({chosenDate:newDate})
     }
 
+    gender(){
+
+    }
+
     render() {
         return (
-            <ScrollView style={styles.container}>
+            <View style={styles.container}>
                 <Text style={styles.textHeader}>Mon compte</Text>
                 <Text style={styles.textInscription}>Inscription</Text>
                 <View style={{flexDirection:'row'}}>
                     <CheckBox style={styles.check} checked={this.state.checked1}
-                              onPress={() => this.setState({checked1: !this.state.checked1,checked2:this.state.checked1})}
+                              onPress={() => this.setState({
+                                      checked1: !this.state.checked1,
+                                      checked2:this.state.checked1,gender:"false"},
+                                  )}
                               color='#e05a47'>
                     </CheckBox>
                     <Text style={styles.textCheck}>Madame</Text>
                     <CheckBox style={styles.check} checked={this.state.checked2}
-                              onPress={() => this.setState({checked2: !this.state.checked2,checked1:this.state.checked2})}
+                              onPress={() => this.setState({
+                                  checked2: !this.state.checked2,
+                                  checked1:this.state.checked2,
+                              gender:true})}
                               color={'#e05a47'}>
                     </CheckBox>
                     <Text style={styles.textCheck}>Monsieur</Text>
                 </View>
-                <TextInput style={styles.textinput} placeholder='Identifiant'/>
-                <TextInput style={styles.textinput} placeholder='Adresse mail'/>
-                <TextInput style={styles.textinput} placeholder='Mot de passe'/>
+                <TextInput style={styles.textinput} placeholder='Identifiant'
+                           onChangeText={(username) => this.setState({username})}/>
+                <TextInput style={styles.textinput} placeholder='Adresse mail'
+                           onChangeText={(email) => this.setState({email})}/>
+                <TextInput style={styles.textinput} placeholder='Mot de passe'
+                           onChangeText={(password) => this.setState({password})}/>
                 <Text style={styles.textinput} placeholder='Date de naissance'>{this.state.chosenDate.toDateString()}</Text>
                 <DatePicker
                     date={this.state.chosenDate}
@@ -49,11 +66,12 @@ export default class Register extends Component {
                     textStyle={{color:"white"}}
                 />
                 <Button style={styles.button}
+
                         color='#ffffff'
-                        onPress={() => {}}>
+                        onPress={() => {console.log(this.state)}}>
                     <Text style={styles.textBouton}>S'inscrire</Text>
                 </Button>
-            </ScrollView>
+            </View>
         );
     }
 }
@@ -67,16 +85,19 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 15,
         backgroundColor: '#34aaa2',
+        alignItems:'center'
     },
     textHeader: {
         fontSize: 50,
         color: '#ffffff',
-        textAlign: 'center'
+        textAlign: 'center',
+        padding:10
     },
     textInscription: {
         fontSize: 30,
         color: '#60D4B2',
-        textAlign: 'center'
+        textAlign: 'center',
+        padding:10
     },
     textBouton: {
         fontSize: 25,
@@ -85,12 +106,15 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#e05a47',
         fontSize: 35,
-        width: 200
+        width: 200,
+        justifyContent:'center',
+        alignItems:'center'
     },
     textinput: {
         marginLeft: 5,
         marginRight: 5,
         height: 50,
+        width:200,
         color: '#ffffff',
         fontSize: 20
     },

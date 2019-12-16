@@ -8,6 +8,7 @@ import Account from '../screens/Account';
 import SettingsScreen from '../screens/SettingsScreen';
 import CardScreen from "../components/CardScreen";
 import Register from "../screens/Register";
+import ForgotPassword from "../screens/ForgotPassword"
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -37,7 +38,8 @@ HomeStack.path = '';
 const AccountStack = createStackNavigator(
   {
     Account: Account,
-      Register:Register
+    Register:Register,
+    ForgotPassword:ForgotPassword
   },
   config
 );
