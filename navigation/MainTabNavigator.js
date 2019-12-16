@@ -6,9 +6,10 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import Account from '../screens/Account';
 import SettingsScreen from '../screens/SettingsScreen';
-import CardScreen from "../components/CardScreen";
+import StationList from "../components/StationList";
 import Register from "../screens/Register";
 import ForgotPassword from "../screens/ForgotPassword"
+import CardScreen from "../components/CardScreen";
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -18,6 +19,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
       Home: HomeScreen,
+      StationList:StationList,
       CardScreen:CardScreen
   },
   config

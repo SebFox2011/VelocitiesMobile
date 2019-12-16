@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import {TouchableOpacity, Text, StyleSheet} from "react-native";
 
 export class TuileSuggest extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
-            <TouchableOpacity style={styles.container}>
+            <TouchableOpacity style={styles.container}
+                              onPress={() => this.props.navigation.navigate('CardScreen')}>
                 <Text style={styles.content}>Suggestions</Text>
             </TouchableOpacity>
         );

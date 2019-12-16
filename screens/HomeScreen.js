@@ -22,7 +22,7 @@ class HomeScreen extends Component {
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
                     <TuileItem title={'Les stations de Rennes'} navigation={this.props.navigation}/>
-                    <TuileSuggest/>
+                    <TuileSuggest navigation={this.props.navigation}/>
                 </View>
                 <TuileProche/>
             </View>

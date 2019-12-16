@@ -1,50 +1,71 @@
 import React, {Component} from 'react';
-import {StyleSheet,Dimensions, Text,View} from "react-native";
-import MapView from 'react-native-maps'
-import CardScreen from "../components/CardScreen";
+import {ActivityIndicator,FlatList, Text, SafeAreaView, StyleSheet, View} from 'react-native'
+import axios from "axios";
 
-export default class SettingsScreen extends Component {
-  constructor() {
-    super();
+class SettingsScreen extends Component {
+  constructor(props) {
+    super(props);
     this.state={
-      region: {
-        latitude: 48.0978255,
-        longitude: -1.6847536,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421
-      }
+      users:[],
+      cities:[]
     }
   }
-  onRegionChange(region) {
-    this.setState({ region });
+
+  fetchUsers() {
+    // Appel au server API pour récupérer la liste des Utilisateurs => users
+    axios.get("http://92.167.212.55/users").then((response) => {
+      this.setState({users: response.data});
+    });
+  };
+
+  fecthCities(){
+    // Appel au server API pour récupérer la liste des villes => cities
+    axios.get("http://92.167.212.55/cities").then((response) => {
+      this.setState({cities: response.data});
+    });
+  };
+
+  componentDidMount() {
+    // Au chargement du module, lancement de la fonction d'appel à l'API
+    this.fetchUsers();
+    this.fecthCities();
   }
+
   render() {
+    const renderCitiesUsers = () => {
+      if (this.state.users.length > 1 && this.state.cities.length>1) {
+        return (
+            <SafeAreaView>
+              <Text>Liste des villes</Text>
+              <FlatList data={this.state.cities}
+                        renderItem={(city) => <Text>{city.name}</Text>}
+                        keyExtractor={city => city._id}/>
+              {console.log(this.state.cities)}
+              <Text>Liste des users</Text>
+              <FlatList data={this.state.users}
+                        renderItem={(user) => <Text>{user.username}</Text>}
+                        keyExtractor={user => user._id}/>
+              {console.log(this.state.users)}
+            </SafeAreaView>
+        )
+          }
+      else {
+        return <ActivityIndicator animation="true" size="large" color="#e05a47"/>
+      }
+    };
+
     return (
-        <View style={styles.container}>
-          <Text>Carte google maps</Text>
-          <MapView style={styles.mapStyle}
-              region={this.state.region}
-              onRegionChange={(region) => this.onRegionChange}/>
-          <CardScreen/>
+        <View>
+          <Text>Settings</Text>
+          {renderCitiesUsers()}
         </View>
+
     );
   }
 }
 
+export default SettingsScreen;
+
 SettingsScreen.navigationOptions = {
   title: 'VeloCities',
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#34aaa2',
-    alignItems:'center'
-  },
-  mapStyle: {
-    width: Dimensions.get('window').width/1.1,
-    height: Dimensions.get('window').height/2,
-    marginLeft: 5,
-    marginRight: 5,
-  }
-});

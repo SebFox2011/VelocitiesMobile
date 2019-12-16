@@ -10,7 +10,7 @@ export class TuileItem extends Component {
         let {title} = this.props
         return (
             <TouchableOpacity style={styles.container}
-                              onPress={() => this.props.navigation.navigate('CardScreen')}>
+                              onPress={() => this.props.navigation.navigate('StationList')}>
                 <Text style={styles.content}>{title}</Text>
             </TouchableOpacity>
         );
