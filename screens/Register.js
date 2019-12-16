@@ -22,8 +22,21 @@ export default class Register extends Component {
         this.setState({chosenDate:newDate})
     }
 
-    gender(){
-
+    onPress () {
+        fetch('http://92.167.212.55/users', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                gender: this.state.gender,
+                username: this.state.username,
+                email: this.state.email,
+                password: this.state.password,
+                birthday: this.state.chosenDate
+            }),
+        });
     }
 
     render() {
@@ -54,6 +67,7 @@ export default class Register extends Component {
                 <TextInput style={styles.textinput} placeholder='Adresse mail'
                            onChangeText={(email) => this.setState({email})}/>
                 <TextInput style={styles.textinput} placeholder='Mot de passe'
+                           secureTextEntry={true}
                            onChangeText={(password) => this.setState({password})}/>
                 <Text style={styles.textinput} placeholder='Date de naissance'>{this.state.chosenDate.toDateString()}</Text>
                 <DatePicker
@@ -68,7 +82,7 @@ export default class Register extends Component {
                 <Button style={styles.button}
 
                         color='#ffffff'
-                        onPress={() => {console.log(this.state)}}>
+                        onPress={() => {this.onPress()}}>
                     <Text style={styles.textBouton}>S'inscrire</Text>
                 </Button>
             </View>

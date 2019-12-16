@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {View, TouchableOpacity, StyleSheet, Text, TextInput} from 'react-native';
 import {Button} from 'native-base'
 
-
 class Account extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +16,6 @@ class Account extends Component {
             <View style={styles.container}>
                 <Text style={styles.textHeader}>Mon compte</Text>
                 <Text style={styles.textConnexion}>Connexion</Text>
-
                 <TextInput style={styles.textinput} placeholder='Identifiant'
                            onChangeText={(Username) => this.setState({Username})}/>
                 <TextInput style={styles.textinput} placeholder='Mot de passe'
