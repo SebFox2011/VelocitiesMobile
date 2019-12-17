@@ -33,19 +33,17 @@ class SettingsScreen extends Component {
 
   render() {
     const renderCitiesUsers = () => {
-      if (this.state.users.length > 1 && this.state.cities.length>1) {
+      if (this.state.users.length > 1 && this.state.cities.length > 1) {
         return (
             <SafeAreaView>
-              <Text>Liste des villes</Text>
+              <Text>Liste des villes:</Text>
               <FlatList data={this.state.cities}
-                        renderItem={(city) => <Text>{city.name}</Text>}
-                        keyExtractor={city => city._id}/>
-              {console.log(this.state.cities)}
-              <Text>Liste des users</Text>
+                        renderItem={({item}) => <Text>{item.name}</Text>}
+                        keyExtractor={(item,index) => index.toString()}/>
+              <Text>Liste des users:</Text>
               <FlatList data={this.state.users}
-                        renderItem={(user) => <Text>{user.username}</Text>}
-                        keyExtractor={user => user._id}/>
-              {console.log(this.state.users)}
+                        renderItem={({item}) => <Text>{item.username}</Text>}
+                        keyExtractor={(item,index) => index.toString()}/>
             </SafeAreaView>
         )
           }
